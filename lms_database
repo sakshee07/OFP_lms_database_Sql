@@ -1,0 +1,258 @@
+create database LMS;
+use LMS;
+create TABLE user_details(
+id  int auto_increment,
+email varchar  (25) not null,
+first_name varchar (25) not null,
+last_name varchar (25) not null,
+pass_word varchar (25) not null,
+contact_number bigint not null,
+creator_stamp timestamp ,
+creator_user varchar (25),
+primary key (id)
+);
+
+drop table user_details;
+
+create table hired_candidates(
+id int auto_increment ,
+first_name varchar(25),
+middle_name varchar(25),
+last_name varchar(25),
+email_id varchar (25),
+hired_city varchar (25),
+degree varchar (25),
+hired_date date,
+mobile_number bigint,
+permannat_pincode int,
+hired_lab varchar(25),
+attitude varchar (25),
+communication_remark varchar(25),
+knowledge_remark varchar (25),
+aggregate_remark varchar (25),
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key (id));
+drop table fellowship_candidate;
+
+create table fellowship_candidate(
+ id int ,
+cic_id bigint,
+first_name varchar(25),
+middle_name varchar(25),
+last_name varchar(25),
+email_id varchar (25),
+hired_city varchar (25),
+degree varchar (25),
+hired_date date,
+mobile_number bigint,
+permannat_pincode int,
+hired_lab varchar(25),
+attitude varchar (25),
+communication_remark varchar(25),
+knowledge_remark varchar (25),
+aggregate_remark varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+birth_date date,
+parent_name varchar(25) not null,
+parent_ocupation varchar(25) not null,
+parent_mobilenumber bigint,
+parents_annualsalary int,
+local_address varchar (50),
+permanant_address varchar (50),
+photo_path varchar (25),
+joining_date date,
+candidate_status varchar (25),
+personal_information  varchar(25),
+bank_information varchar(25),
+educational_information varchar (25),
+document_status varchar(25),
+remark varchar(25),
+foreign key (id) references hired_candidates(id));
+
+create table candidate_bankdetails(
+id int not null,
+candidate_id int not null,
+name_ varchar (25),
+account_number bigint,
+ifsc_code int,
+pan_number varchar (25),
+addhar_number bigint,
+creator_stamp timestamp ,
+creator_user varchar(25),
+foreign key(candidate_id) references fellowship_candidate(id)
+);
+
+create table candidate_qualification(
+id int ,
+candidate_id int not null,
+diploma varchar (25),
+degree varchar (25),
+employee_decipline varchar (25),
+passing_year int,
+aggr_per double,
+final_year_per double,
+training_institute varchar (25),
+training_institute_month int,
+other_trainig varchar(25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+foreign key(candidate_id) references fellowship_candidate(id)
+);
+
+create table candidate_docuemnets(
+id int,
+candidate_id int,
+doc_type varchar (25),
+doc_path varchar (25),
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+foreign key(candidate_id) references fellowship_candidate(id)
+);
+
+create table company(
+id int not null,
+name varchar(25),
+address varchar(25),
+location varchar (25),
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id));
+
+drop table company;
+
+create table lab(
+id int not null,
+name varchar(25),
+address varchar(25),
+location varchar (25),
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id));
+
+create table tech_type(
+id int not null,
+type_name varchar (25),
+cur_status varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id));
+drop table tech_stack;
+
+create table tech_stack(
+id int not null,
+tech_name varchar (25),
+iamge_path varchar(25),
+framework varchar (25),
+cur_status varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id));
+
+create table maker_program(
+id int not null,
+proram_name varchar(25),
+program_type varchar (25),
+program_link varchar (45),
+tech_stack_id int,
+tech_type_id int,
+description_ varchar (25),
+status_ varchar(25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id),
+foreign key (tech_stack_id) references tech_stack(id),
+foreign key (tech_type_id) references tech_type	(id)); 
+
+create table lab_threshold(
+id int not null,
+lab_id int not null,
+lab_capacity int,
+lead_threshold varchar (25),
+ideation_engg_threshold varchar(25),
+buddy_engg_threshold varchar (25),
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id),
+foreign key (lab_id) references lab(id));
+
+create table mentor(
+id int not null,
+name varchar(25),
+mentor_type varchar(25),
+lab_id int ,
+status_ varchar(25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key (id),
+foreign key (lab_id) references lab(id));
+
+
+create table mentor_ideation_map(
+id int,
+parent_mentor_id int,
+mentor_id int,
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id),
+foreign key (parent_mentor_id) references lab(id),
+foreign key (mentor_id) references lab(id));
+
+
+create table mentor_tech_stack(
+id int,
+mentor_id int,
+tech_stack_id int,
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id),
+foreign key (mentor_id) references mentor(id),
+foreign key(tech_stack_id) references tech_stack(id));
+
+create table company_requirement(
+id int,
+company_id int,
+requested_month varchar(25),
+city varchar(25),
+requirement_doc_path varchar (25),
+no_of_engg int ,
+tech_stack_id int,
+tech_type_id int,
+maker_program_id int,
+lead_id int,
+ideation_engg_id int,
+budyy_engg_id int,
+special_remark varchar(25),
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+primary key(id),
+foreign key(company_id) references company(id),
+foreign key(tech_stack_id) references tech_stack(id),
+foreign key(tech_type_id) references tech_type(id),
+foreign key(maker_program_id) references maker_program(id),
+foreign key(lead_id) references mentor(id),
+foreign key(ideation_engg_id) references mentor_ideation_map(id));
+
+create table candidate_stack_assignement(
+id int,
+requirement_id int,
+candidate_id int,
+assign_date int,
+complete_date date,
+status_ varchar (25),
+creator_stamp timestamp ,
+creator_user varchar(25),
+foreign key(requirement_id) references company_requirement(id),
+foreign key(candidate_id) references fellowship_candidate(id));
+
+show tables;
+
