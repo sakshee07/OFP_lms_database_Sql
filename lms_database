@@ -14,6 +14,25 @@ primary key (id)
 
 drop table user_details;
 
+
+insert into user_details(
+email ,
+first_name ,
+last_name ,
+pass_word ,
+contact_number ,
+creator_stamp  ,
+creator_user )
+values
+('sakshee1@gmail.com','Sakshee','Bhole','Abc@123',98225467610,current_timestamp(),'Naina'),
+('mrunal@gmail.com','Mrunal','Jawale','Abc@123',8956202678,current_timestamp(),'Naina'),
+('sagar1@gmail.com','Sagar','Patil','Abc@123',6789102378,current_timestamp(),'Naina'),
+('yadnya@gmail.com','Yadnya','Patil','Abc@123',98225467610,current_timestamp(),'Naina'),
+('akshay@gmail.com','Akshay','Bhole','Abc@123',982258967610,current_timestamp(),'Naina'),
+('nila@gmail.com','Nila','Sen','Abc@123',98212467610,current_timestamp(),'Naina'),
+('Vidya@gmail.com','Vidya','Rai','Abc@123',9876543210,current_timestamp(),'Naina');
+
+
 create table hired_candidates(
 id int auto_increment ,
 first_name varchar(25),
@@ -34,6 +53,36 @@ status_ varchar (25),
 creator_stamp timestamp ,
 creator_user varchar(25),
 primary key (id));
+
+
+insert into hired_candidates(
+first_name ,
+middle_name,
+last_name ,
+email_id ,
+hired_city ,
+degree ,
+hired_date,
+mobile_number ,
+permannat_pincode ,
+hired_lab ,
+attitude  ,
+communication_remark ,
+knowledge_remark ,
+aggregate_remark ,
+status_ ,
+creator_stamp  ,
+creator_user )
+values 
+('Sakshee', 'Sunil','Bhole', 'sakshee1@gmail.com','Pune', 'BE-Mech', '2022-07-26', 98225467610, 422013, 'Pune-lab','Polite','Good','Very Good','Good','Accepeted',current_timestamp(),'Naina'),
+('Mrunal', 'Manish','Jawale','mrunal@gmail.com', 'Mumbai', 'BE-Civil', '2022-07-23', 8956202678, 422011, 'Mumbai-lab','Good','Good','Very Good','Good','Pending',current_timestamp(),'Naina'),
+('Sagar', 'Nitin','Patil','sagar1@gmail.com', 'Pune', 'BE-IT', '2022-07-23', 6789102378, 422122, 'Pune-lab','Good','Good','Very Good','Very Good','Rejected',current_timestamp(),'Naina'),
+('Yadnya', 'Mahesh','Patil','yadnya@gmail.com', 'Banglore', 'MCA', '2022-07-21', 98225467610, 432121, 'Banglore-lab','Average','Good',' Good',' Good','Accepeted',current_timestamp(),'Naina'),
+('Akshay', 'Abhi','Bhole','akshay@gmail.com', 'Pune', 'BE-IT', '2022-07-22', 982258967610, 422122, 'Pune-lab','Good','Good','Very Good','Very Good','Accepeted',current_timestamp(),'Naina'),
+('Nila', 'Rakesh','Sen','nila@gmail.com', 'Banglore', 'BE-Civil', '2022-07-22', 98212467610, 432121, 'Banglore-lab','Good','Good',' Good',' Good','Accepeted',current_timestamp(),'Naina'),
+('Vidya', 'Amit','Rai','vidya@gmail.com', 'Mumbai', 'BE-Mech', '2022-07-26', 9876543210, 422011, 'Mumbai-lab','Good','Good',' Good','Good','Accepeted',current_timestamp(),'Naina');
+ select * from hired_candidates;
+ 
 drop table fellowship_candidate;
 
 create table fellowship_candidate(
@@ -70,7 +119,105 @@ bank_information varchar(25),
 educational_information varchar (25),
 document_status varchar(25),
 remark varchar(25),
-foreign key (id) references hired_candidates(id));
+primary key(id));
+
+
+insert into fellowship_candidate(id ,cic_id ,first_name ,
+middle_name ,last_name ,email_id ,hired_city ,
+degree  ,hired_date ,mobile_number ,
+permannat_pincode ,hired_lab ,
+attitude  ,communication_remark ,
+knowledge_remark  ,creator_stamp  ,creator_user ,
+parent_name ,parent_ocupation ,parent_mobilenumber ,parents_annualsalary ,
+local_address ,permanant_address  ,photo_path  ,joining_date ,
+candidate_status ,personal_information ,
+bank_information ,educational_information ,
+document_status ,remark )
+value
+(1,1010134,'Sakshee','SUnil','Bhole','sakshee1@gmail.com','Pune','BE-Mech','2022-07-26',
+ 98225467610, 422013,'Pune-lab','active','good','good',current_timestamp(),
+'Naina','SUnil','Service',9988776654,120000,
+'101-Puraniks ABhitante Bavdhan Pune','101-Puraniks ABhitante Bavdhan Pune','available',
+'2022-07-12','active','available','available','available','available','aacpeted');
+
+insert into fellowship_candidate(id ,cic_id ,first_name ,
+middle_name ,last_name ,email_id ,hired_city ,
+degree  ,hired_date ,mobile_number ,
+permannat_pincode ,hired_lab ,
+attitude  ,communication_remark ,
+knowledge_remark  ,creator_stamp  ,creator_user ,
+parent_name ,parent_ocupation ,parent_mobilenumber ,parents_annualsalary ,
+local_address ,permanant_address  ,photo_path  ,joining_date ,
+candidate_status ,personal_information ,
+bank_information ,educational_information ,
+document_status ,remark )
+value
+(2,0320221134,'Mrunal', 'Manish','Jawale','mrunal@gmail.com', 'Mumbai', 'BE-Civil', '2022-07-23',
+ 8956202678, 422011, 'Mumbai-lab','Good','Very Good','Good',current_timestamp(),'Naina',
+ 'Manish ','Business',9933447856,800000,
+ '12 Shree Apt Smarat Naagar Dombivali W','12 Shree Apt Smarat Naagar Dombivali W','Not available', 
+ '2022-10-10','Active','Available','Avaialable','Available','Submmited','Good performer');
+ 
+ 
+ 
+insert into fellowship_candidate(id ,cic_id ,first_name ,
+middle_name ,last_name ,email_id ,hired_city ,
+degree  ,hired_date ,mobile_number ,
+permannat_pincode ,hired_lab ,
+attitude  ,communication_remark ,
+knowledge_remark  ,creator_stamp  ,creator_user ,
+parent_name ,parent_ocupation ,parent_mobilenumber ,parents_annualsalary ,
+local_address ,permanant_address  ,photo_path  ,joining_date ,
+candidate_status ,personal_information ,
+bank_information ,educational_information ,
+document_status ,remark )
+value
+(3,0320221135,'Monica', 'Rajesh','Sen','mms@gmail.com', 'Mumbai', 'BE-IT', '2022-07-23',
+ 8956202678, 422011, 'Mumbai-lab','Good','Very Good','Good',current_timestamp(),'Naina',
+ 'Rajesh ','Doctor',9933447856,800000,
+ '101 Lily  Pimpari chinchwad','101 Lily  Pimpari chinchwad','Not available', 
+ '2022-10-10','Active','Available','Avaialable','Available','Submmited','Good performer');
+ 
+  
+insert into fellowship_candidate(id ,cic_id ,first_name ,
+middle_name ,last_name ,email_id ,hired_city ,
+degree  ,hired_date ,mobile_number ,
+permannat_pincode ,hired_lab ,
+attitude  ,communication_remark ,
+knowledge_remark  ,creator_stamp  ,creator_user ,
+parent_name ,parent_ocupation ,parent_mobilenumber ,parents_annualsalary ,
+local_address ,permanant_address  ,photo_path  ,joining_date ,
+candidate_status ,personal_information ,
+bank_information ,educational_information ,
+document_status ,remark )
+value
+(4,0320221135,'Aswhini', 'Rahul','Patel','arp@gmail.com', 'Pune', 'BE-IT', '2022-07-23',
+ 8956202678, 422011, 'Pune-lab','Good','Very Good','Good',current_timestamp(),'Naina',
+ 'Rahul ','Farmer',9933447856,800000,
+ '18 Kale nagar , nashik','18 Kale nagar , nashik',' available', 
+ '2022-10-10','Active','Available','Avaialable','Available','Submmited','Good performer');
+insert into fellowship_candidate(id ,cic_id ,first_name ,
+middle_name ,last_name ,email_id ,hired_city ,
+degree  ,hired_date ,mobile_number ,
+permannat_pincode ,hired_lab ,
+attitude  ,communication_remark ,
+knowledge_remark  ,creator_stamp  ,creator_user ,
+parent_name ,parent_ocupation ,parent_mobilenumber ,parents_annualsalary ,
+local_address ,permanant_address  ,photo_path  ,joining_date ,
+candidate_status ,personal_information ,
+bank_information ,educational_information ,
+document_status ,remark )
+values
+(3,0320221135,'Sagar', 'Nitin','Patil','sagar1@gmail.com', 'Pune', 'BE-IT', '2022-07-23', 
+6789102378, 422122, 'Pune-lab','Good','Good','Very Good',current_timestamp(),'Naina','1990-02-12',
+'Nitin ', 'Service,9722546660,1500000,
+Pride park 1 Lohegaon Dhanori','809-Pride park Lohegaon Dhanori',
+'Not available', '2022-10-10','Active','Available','Avaialable','Available','Submmited','Good performer');
+
+alter table fellowship_candidate drop id ;
+alter table candidate_docuemnets add id int(8) primary key auto_increment;
+Alter table candidate_docuemnets
+        drop foreign key candidate_docuemnets_ibfk_1;
 
 create table candidate_bankdetails(
 id int not null,
@@ -82,8 +229,20 @@ pan_number varchar (25),
 addhar_number bigint,
 creator_stamp timestamp ,
 creator_user varchar(25),
+primary key(id),
 foreign key(candidate_id) references fellowship_candidate(id)
 );
+alter table candidate_qualification drop id ;
+insert into candidate_bankdetails(
+id,candidate_id,name_, account_number,ifsc_code,pan_number,addhar_number, creator_stamp,creator_user)
+ value
+(1,0320221133,'Sakshee',12345,1112,123455,123456789,current_timestamp(),'Naina'),
+(2,0320221134,'Mrunal',11223,1113,123456,987654321,current_timestamp(),'Naina');
+
+Alter table candidate_qualification
+        drop foreign key candidate_docuemnets_ibfk_1;
+
+alter table candidate_qualification add id int primary key auto_increment;
 
 create table candidate_qualification(
 id int ,
@@ -102,6 +261,21 @@ creator_user varchar(25),
 foreign key(candidate_id) references fellowship_candidate(id)
 );
 
+insert into candidate_qualification(id,candidate_id,diploma,degree,employee_decipline,passing_year,
+aggr_per,final_year_per,training_institute,training_institute_month,other_trainig,creator_stamp,creator_user)
+values  (1,1,'No','Yes','Good',2016,55,65,'JIT Institute',36,'no',current_timestamp(),'Naina');
+insert into candidate_qualification(id,candidate_id,diploma,degree,employee_decipline,passing_year,
+aggr_per,final_year_per,training_institute,training_institute_month,other_trainig,creator_stamp,creator_user)
+values  (2,2,'No','Yes','Good',2018,53,64,'JIT Institute',40,'no',current_timestamp(),'Naina');
+insert into candidate_qualification(id,candidate_id,diploma,degree,employee_decipline,passing_year,
+aggr_per,final_year_per,training_institute,training_institute_month,other_trainig,creator_stamp,creator_user)
+values 
+(3,2,'No','Yes','Good',2018,53,67,'JIT Institute',40,'no',current_timestamp(),'Naina'),
+(4,2,'No','Yes','Good',2015,57,68,'JIT Institute',40,'no',current_timestamp(),'Naina'),
+(5,2,'No','Yes','Good',2017,59,63,'JIT Institute',40,'no',current_timestamp(),'Naina'),
+(6,2,'No','Yes','Good',2018,60,70,'JIT Institute',40,'no',current_timestamp(),'Naina');
+
+
 create table candidate_docuemnets(
 id int,
 candidate_id int,
@@ -112,7 +286,18 @@ creator_stamp timestamp ,
 creator_user varchar(25),
 foreign key(candidate_id) references fellowship_candidate(id)
 );
+insert into candidate_docuemnets (id,candidate_id,doc_type,doc_path,status_,creator_stamp,creator_user)
+values
+(1,1,'Pan-Card','Available','Active',current_timestamp(),'Naina');
+insert into candidate_docuemnets (id,candidate_id,doc_type,doc_path,status_,creator_stamp,creator_user)
+values
+(2,2,'Adhar-Card','Available','Active',current_timestamp(),'Naina'),
+(3,3,'Passport','Available','Active',current_timestamp(),'Naina'),
+(4,4,'Pan-Card','Available','Active',current_timestamp(),'Naina'),
+(5,5,'Adhar-Card','Available','Active',current_timestamp(),'Naina');
 
+
+select * from candidate_docuemnets;
 create table company(
 id int not null,
 name varchar(25),
@@ -122,6 +307,21 @@ status_ varchar (25),
 creator_stamp timestamp ,
 creator_user varchar(25),
 primary key(id));
+
+
+insert into company (id, name,address, location, status_, creator_stamp, creator_user)
+value
+(1, 'BajajFinserv', 'Mantri IT park','Pune','Active',current_timestamp(),'Naina');
+insert into company (id, name,address, location, status_, creator_stamp, creator_user)
+value
+(2,'Arena soft', 'Ravi chambers ,Andheri ','Mumbai','Active',current_timestamp(),'Naina');
+drop table company;
+insert into company (id, name,address, location, status_, creator_stamp, creator_user)
+value
+(3,'RBL Bank', ' MN IT Park ','Mumbai','Active',current_timestamp(),'Naina'),
+(4,'Synchron Tech', 'IC IT park ','Banglore','Active',current_timestamp(),'Naina'),
+(5,'Arena soft', 'Ravi chambers Andheri ','Mumbai','Active',current_timestamp(),'Naina'),
+(6,'Oracle Finserv', 'KG IT Park' ,'Baglore ','Active',current_timestamp(),'Naina');
 
 drop table company;
 
@@ -134,6 +334,19 @@ status_ varchar (25),
 creator_stamp timestamp ,
 creator_user varchar(25),
 primary key(id));
+insert into lab
+(id, name, address,location,status_,creator_stamp, creator_user)
+value
+(1,'Mumbai-lab','A1 towers Rao estate', 'Thane','Active',current_timestamp(),'Naina');
+insert into lab
+(id, name, address,location,status_,creator_stamp, creator_user)
+value
+(2,'Pune-lab','NS towers Viman ngr', 'Pune','Active',current_timestamp(),'Naina');
+insert into lab
+(id, name, address,location,status_,creator_stamp, creator_user)
+value
+(3,'Banglore-lab','KS IT Park-101', 'Banglore','Active',current_timestamp(),'Naina');
+
 
 create table tech_type(
 id int not null,
@@ -142,6 +355,14 @@ cur_status varchar (25),
 creator_stamp timestamp ,
 creator_user varchar(25),
 primary key(id));
+INSERT INTO tech_type(id,type_name,cur_status,creator_stamp, creator_user)
+values 
+(1,'Fullstack','Active',current_timestamp(),'Naina');
+INSERT INTO tech_type(id,type_name,cur_status,creator_stamp, creator_user)
+values 
+(2,'Frontend','Active',current_timestamp(),'Naina'),
+(3,'Backend','Active',current_timestamp(),'Naina');
+
 drop table tech_stack;
 
 create table tech_stack(
@@ -153,6 +374,15 @@ cur_status varchar (25),
 creator_stamp timestamp ,
 creator_user varchar(25),
 primary key(id));
+insert into tech_stack(id,tech_name,iamge_path,framework,cur_status,creator_stamp, creator_user)
+values
+(1,'Java','Available','Springboot','Active',current_timestamp(),'Naina');
+insert into tech_stack(id,tech_name,iamge_path,framework,cur_status,creator_stamp, creator_user)
+values
+(2,'Python','Available','framework1','Active',current_timestamp(),'Naina'),
+(3,'PHP','Available','Framework3','Active',current_timestamp(),'Naina');
+
+
 
 create table maker_program(
 id int not null,
@@ -168,6 +398,24 @@ creator_user varchar(25),
 primary key(id),
 foreign key (tech_stack_id) references tech_stack(id),
 foreign key (tech_type_id) references tech_type	(id)); 
+insert into maker_program (id,proram_name,program_link,tech_stack_id,tech_type_id,description_,status_,creator_stamp,creator_user)
+values
+(1,'CFP','Available',1,1,'CFP completed','Active',current_timestamp(),'Naina');
+
+insert into maker_program (id,proram_name,program_link,tech_stack_id,tech_type_id,description_,status_,creator_stamp,creator_user)
+values
+(2,'LFP','Available',2,2,'CFP completed','Active',current_timestamp(),'Naina');
+
+insert into maker_program (id,proram_name,program_link,tech_stack_id,tech_type_id,description_,status_,creator_stamp,creator_user)
+values
+(3,'LFP','Available',2,2,'CFP completed','Active',current_timestamp(),'Naina'),
+(4,'CFP','Available',2,2,'CFP completed','Active',current_timestamp(),'Naina'),
+(5,'CIC','Available',1,2,'CFP completed','Active',current_timestamp(),'Naina');
+
+
+
+
+
 
 create table lab_threshold(
 id int not null,
@@ -181,6 +429,22 @@ creator_stamp timestamp ,
 creator_user varchar(25),
 primary key(id),
 foreign key (lab_id) references lab(id));
+alter table lab_threshold modify column lead_threshold integer;
+alter table lab_threshold modify column ideation_engg_threshold integer;
+
+alter table lab_threshold modify column buddy_engg_threshold integer;
+insert into lab_threshold(id,lab_id,lab_capacity,lead_threshold,ideation_engg_threshold,status_,creator_stamp,creator_user)
+values
+(1,1,20,250,60,'Active',current_timestamp(),'Naina');
+insert into lab_threshold(id,lab_id,lab_capacity,lead_threshold,ideation_engg_threshold,status_,creator_stamp,creator_user)
+values
+(2,2,20,230,65,'Active',current_timestamp(),'Naina');
+insert into lab_threshold(id,lab_id,lab_capacity,lead_threshold,ideation_engg_threshold,status_,creator_stamp,creator_user)
+values
+(3,2,20,230,65,'Active',current_timestamp(),'Naina'),
+(4,2,20,250,70,'Active',current_timestamp(),'Naina'),
+(5,1,20,210,90,'Active',current_timestamp(),'Naina');
+
 
 create table mentor(
 id int not null,
@@ -192,6 +456,19 @@ creator_stamp timestamp ,
 creator_user varchar(25),
 primary key (id),
 foreign key (lab_id) references lab(id));
+
+insert into mentor(id, name,mentor_type,lab_id,status_,creator_stamp,creator_user)
+values
+(1,'Mentor1','External',1,'Active',current_timestamp(),'Naina');
+insert into mentor(id, name,mentor_type,lab_id,status_,creator_stamp,creator_user)
+values
+(2,'Mentor2','External',2,'Active',current_timestamp(),'Naina'),
+(3,'Mentor3','External',2,'Active',current_timestamp(),'Naina');
+insert into mentor(id, name,mentor_type,lab_id,status_,creator_stamp,creator_user)
+values
+(4,'Mentor4','External',1,'Active',current_timestamp(),'Naina'),
+(5,'Mentor5','External',1,'Active',current_timestamp(),'Naina');
+
 
 
 create table mentor_ideation_map(
@@ -205,6 +482,18 @@ primary key(id),
 foreign key (parent_mentor_id) references lab(id),
 foreign key (mentor_id) references lab(id));
 
+insert into mentor_ideation_map(id,parent_mentor_id,mentor_id,status_,creator_stamp,creator_user)
+values
+(1,1,1,'Active',current_timestamp(),'Naina');
+insert into mentor_ideation_map(id,parent_mentor_id,mentor_id,status_,creator_stamp,creator_user)
+values
+(2,2,2,'Active',current_timestamp(),'Naina');
+insert into mentor_ideation_map(id,parent_mentor_id,mentor_id,status_,creator_stamp,creator_user)
+values
+(3,2,2,'Active',current_timestamp(),'Naina'),
+(4,1,2,'Active',current_timestamp(),'Naina'),
+(5,2,2,'Active',current_timestamp(),'Naina');
+
 
 create table mentor_tech_stack(
 id int,
@@ -216,6 +505,20 @@ creator_user varchar(25),
 primary key(id),
 foreign key (mentor_id) references mentor(id),
 foreign key(tech_stack_id) references tech_stack(id));
+
+insert into mentor_tech_stack (id,mentor_id,tech_stack_id,status_,creator_stamp,creator_user)
+values
+(1,1,1,'Active',current_timestamp(),'Naina');
+insert into mentor_tech_stack (id,mentor_id,tech_stack_id,status_,creator_stamp,creator_user)
+values
+(2,2,2,'Active',current_timestamp(),'Naina');
+insert into mentor_tech_stack (id,mentor_id,tech_stack_id,status_,creator_stamp,creator_user)
+values
+(3,2,2,'Active',current_timestamp(),'Naina'),
+(4,2,2,'Active',current_timestamp(),'Naina'),
+(5,2,2,'Active',current_timestamp(),'Naina'),
+(6,2,2,'Active',current_timestamp(),'Naina');
+
 
 create table company_requirement(
 id int,
@@ -242,6 +545,22 @@ foreign key(maker_program_id) references maker_program(id),
 foreign key(lead_id) references mentor(id),
 foreign key(ideation_engg_id) references mentor_ideation_map(id));
 
+insert into company_requirement(id,company_id,requested_month,city,requirement_doc_path,
+no_of_engg,tech_stack_id,tech_type_id,maker_program_id,lead_id,ideation_engg_id,budyy_engg_id,special_remark,status_,
+creator_stamp,creator_user)
+values(1,1,'November','Pune','/home/documents/1',3,1,1,1,1,1,1,'True','Active',current_timestamp(),'Naina');
+
+
+insert into company_requirement(id,company_id,requested_month,city,requirement_doc_path,
+no_of_engg,tech_stack_id,tech_type_id,maker_program_id,lead_id,ideation_engg_id,budyy_engg_id,special_remark,status_,
+creator_stamp,creator_user)
+values(2,2,'November','Mumbai','/home/documents/2',10,1,1,1,1,1,1,'True','Active',current_timestamp(),'Naina'),
+(3,3,'November','Banglore','/home/document/3',13,2,1,1,1,1,1,'True','Active',current_timestamp(),'Naina'),
+(4,2,'November','Pune','/home/documents/4',12,2,1,2,1,1,1,'True','Active',current_timestamp(),'Naina'),
+(5,1,'November','Pune','/home/documents/5',11,1,1,2,1,1,1,'True','Active',current_timestamp(),'Naina');
+
+
+drop table candidate_stack_assignement;
 create table candidate_stack_assignement(
 id int,
 requirement_id int,
@@ -253,6 +572,129 @@ creator_stamp timestamp ,
 creator_user varchar(25),
 foreign key(requirement_id) references company_requirement(id),
 foreign key(candidate_id) references fellowship_candidate(id));
+alter table candidate_stack_assignement modify assign_date date;
+insert into candidate_stack_assignement(id,requirement_id,candidate_id,assign_date,complete_date,status_,creator_stamp,creator_user)
+values
+(1,1,1,'2022-7-23','2022-9-29','Active',current_timestamp(),'Naina');
 
-show tables;
+insert into candidate_stack_assignement(id,requirement_id,candidate_id,assign_date,complete_date,status_,creator_stamp,creator_user)
+values
+(2,2,2,'2022-7-21','2022-9-20','Active',current_timestamp(),'Naina');
+
+
+insert into candidate_stack_assignement(id,requirement_id,candidate_id,assign_date,complete_date,status_,creator_stamp,creator_user)
+values
+(2,2,1,'2022-6-19','2022-9-20','Active',current_timestamp(),'Naina'),
+(3,1,2,'2022-8-09','2022-10-20','Active',current_timestamp(),'Naina'),
+(4,1,2,'2022-8-01','2022-10-05','Active',current_timestamp(),'Naina');
+
+show tables;	
+
+
+
+select name_ from candidate_bankdetails where ifsc_code = 1112;
+select * from candidate_bankdetails where creator_user = 'Naina';
+select name from candidate_bankdetails where creator_user = 'Naina';
+select * from candidate_docuemnets where doc_type = 'Pan-Card';
+select * from candidate_docuemnets where doc_type = 'Adhar-Card';
+select * from candidate_docuemnets where doc_type = 'Passport';
+select * from candidate_docuemnets where status_ = 'Active';
+select candidate_id from candidate_docuemnets where doc_path = 'Available';
+select * from candidate_docuemnets where doc_path = 'Available';
+select * from candidate_qualification where training_institute =  'NIIT College';
+select * from candidate_qualification where training_institute =  'VJIT College';
+select * from candidate_qualification where passing_year  =  2018;
+select * from candidate_qualification where passing_year  <  2018;
+select * from candidate_qualification where passing_year  > 2018;
+select * from candidate_qualification where degree  = 'Yes';
+select * from candidate_qualification where degree  = 'No';
+select * from candidate_qualification where diploma  = 'Yes';
+select * from candidate_qualification where aggr_per  < 60;
+select * from candidate_qualification where aggr_per  > 50;
+select * from candidate_qualification where training_institute_month  > 30;
+select * from company where name = 'BajajFinserv';
+select * from company where name = 'Arena soft';
+select * from company where name = 'RBL Bank';
+select * from company where status_ = 'Active';
+select * from company where location = 'Mumbai';
+select * from company where location = 'Pune';
+select * from company where location = 'Banglore';
+select * from company_requirement where requested_month = 'November';
+select * from company_requirement where no_of_engg < 30;
+select * from tech_type where type_name = 'Fullstack';
+select * from tech_type where type_name = 'Frontend';
+select * from tech_type where type_name = 'Backend';
+select * from tech_type where cur_status = 'Active';
+select * from tech_namecompany_requirementhired_candidates where cur_status = 'Active';
+select * from hired_candidates where hired_city = 'Pune';
+select * from hired_candidates where hired_city = 'Mumbai';
+select * from hired_candidates where degree = 'BE-IT';
+select * from hired_candidates where degree = 'BE-Civil';
+select * from hired_candidates where degree = 'BE-Mech';
+select * from hired_candidates where hired_lab = 'Pune';
+select * from tech_stack where framework = 'Framework3';
+select * from tech_stack where framework = 'Springboot';
+select * from tech_stack where tech_name = 'Java';
+select * from tech_stack where tech_name = 'Python';
+select * from user_details where email = 'sakshee1@gmail.com';
+select * from mentor where mentor_type = 'external';
+select * from mentor where mentor_type = 'internal';
+select * from mentor where lab_id = '2';
+select * from mentor where lab_id = '1';
+select * from mentor where lab_id = '3';
+select * from maker_program where proram_name = 'CFP';
+select * from maker_program where proram_name = 'LFP';
+select * from maker_program where proram_name = 'CIC';
+select * from lab_threshold where lab_capacity = 20;
+select * from lab_threshold where lab_capacity > 10;
+select * from lab_threshold where lab_capacity > 10;
+select * from lab_threshold where lab_id  = 2;
+select * from fellowship_candidate where hired_city   = 'Pune';
+select * from fellowship_candidate where hired_city   = 'Mumbai';
+select * from fellowship_candidate where degree   = 'BE-Civil';
+select * from fellowship_candidate where degree   = 'BE-Mechanical';
+select * from fellowship_candidate where communication_remark  = 'good';
+select * from fellowship_candidate where degree   = 'BE-Civil';
+select * from fellowship_candidate where knowledge_remark    = 'Good';
+select * from fellowship_candidate where permannat_pincode    = '422013';
+select * from company_requirement where requested_month	 = 'November';
+select * from company_requirement where city	 = 'Pune';
+select * from company_requirement where no_of_engg	 >= '12';
+select * from company_requirement where city	 = 'Banglore';
+
+
+
+update maker_program set description_ = 'LFP completed' where id = 2 ;
+update maker_program set description_ = 'LFP completed' where id = 3 ;
+update maker_program set description_ = 'CIC completed' where id = 5 ;
+
+
+update candidate_qualification set degree = 'No' where id = 2;
+update candidate_qualification set diploma = 'Yes' where id = 2;
+
+update candidate_qualification set degree = 'No' where id = 4;
+update candidate_qualification set diploma = 'Yes' where id = 4;
+
+update company_requirement set requested_month = 'December' where id = 1;
+update company_requirement set requested_month = 'January' where id = 2;
+update company_requirement set requested_month = 'February' where id = 3;
+
+update candidate_qualification set training_institute = 'NIIT College' where id = 2;
+update candidate_qualification set training_institute = 'VJIT College' where id = 3;
+update candidate_qualification set training_institute = 'KKW  INSTITUTE ' where id = 4;
+update candidate_qualification set training_institute = 'NIIT College' where id = 5;
+
+select  employees.employee_id, employees.employee_name, departments.department_name from employees, departments
+    where employees.department_id = departments.department_id;
+
+select emp.employee_id, emp.employee_name, emp.salary, dept.department_name
+     from employees as emp left join departments as dept
+     on emp.department_id = dept.department_id;
+     
+select emp.employee_id, emp.employee_name, emp.salary, dept.department_name
+     from employees as emp right join departments as dept
+     on emp.department_id = dept.department_id;
+     
+	select count(employee_id), department_id from employees group by department_id;
+
 
